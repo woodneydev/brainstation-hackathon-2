@@ -7,10 +7,23 @@ const readTodos = () => {
     return todos
 }
 
-console.log(readTodos())
+const pushNewTodo = (newObj) => {
+    let todoList = readTodos();
+    todoList.push(newObj)
+    fs.writeFileSync("./data/todos.json", JSON.stringify(newObj))
+}
+
+
+const postTodos = (req, res) => {
+    const {data} = req.body
+}
+
 router.get("/", (req, res) => {
     const todoList = readTodos()
-    res.status(200).json({data: "hello world"})
+    res.status(200).json(todoList)
+})
+.post("/", (req, res) => {
+
 })
 
 module.exports = router
