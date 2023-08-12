@@ -5,7 +5,9 @@ const cors = require("cors");
 const todos = require("./routes/todos.js");
 const PORT = process.env.PORT || 8081;
 
-
+app.use(cors({
+    origin: "*"
+}))
 app.use(express.json());
 
 app.use("/todos", todos)
